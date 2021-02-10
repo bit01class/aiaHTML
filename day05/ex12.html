@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title> Title </title>
+<style rel="stylesheet" type="text/css">
+   /* ul{display: none;}*/
+</style>
+</head>
+<body>
+    <h1>node 제어2</h1>
+    <ul>
+        <li><img src="imgs/big01.jpg" /></li>
+        <li><img src="imgs/big02.jpg" /></li>
+        <li><img src="imgs/big03.jpg" /></li>
+        <li><img src="imgs/big04.jpg" /></li>
+        <li><img src="imgs/big05.jpg" /></li>
+        <li><img src="imgs/big06.jpg" /></li>
+    </ul>
+<script type="text/javascript">
+var arr=[];
+var ul=document.getElementsByTagName('ul')[0];
+
+arr.push(ul.firstElementChild);
+while(true){
+var ele=arr[arr.length-1].nextElementSibling;
+if(ele==null)break;
+arr.push(ele);
+}
+    
+var div=document.createElement('div');
+ul.before(div);
+    
+function next(){
+    if(div.firstElementChild)
+        div.removeChild(div.firstElementChild);
+    var ele=arr.shift();
+    div.appendChild(ele);
+    arr.push(ele);
+}
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

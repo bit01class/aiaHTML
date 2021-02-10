@@ -1,0 +1,125 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8"> 
+<style rel="stylesheet" type="text/css">
+    *{
+        margin: 0px;
+        padding: 0px;
+    }
+    #navi,#footer{
+        background-color: darkgray;
+    }
+    #header{
+    }
+    #header>h1{
+        margin: 30px;
+        width: 149px;
+        height: 33px;
+        background-image: url(imgs/blue_logo.png);
+        background-repeat: no-repeat;
+        text-indent: -999px;
+    }
+    #navi{
+        overflow: hidden;
+        
+        clear: both; 
+    }
+    #navi>ul{
+        list-style: none;
+        width: 420px;
+        margin: 0px auto;
+    }
+    #navi>ul>li{
+        float: left;
+        width: 100px;
+        margin-right: 5px;
+    }
+    #navi>ul>li>a{
+        display: block;
+        height: 40px;
+        line-height: 40px;
+        background-color: darkgray;
+        border-top: 5px solid gray;
+        border-bottom: 5px solid gray;
+        text-decoration: none;
+        text-align: center;
+    }
+    #navi>ul>li>a:link{
+        color: rgb(255,255,255);
+    }
+    #content{ 
+        width: 70%;
+        float: left;
+    }
+    #content>img{
+        width: 80%;
+        display: block;
+        margin: 0px auto;
+    }
+    .article{
+        float: left;
+        width: 30%;
+    }
+    .article>ol{
+        list-style: none;
+    }
+    .article>ol>li{
+        height: 150px;
+        margin-left: 10px;
+    }
+    .article>ol>li>a{
+        display: block;
+        height: 150px;
+        text-indent: -9999px;
+    }
+    .article>ol>li:nth-child(1)>a{
+        
+        background-image: url("https://logoproject-phinf.pstatic.net/20201104_196/1604469969558l66ff_GIF/%ED%9B%88%EB%A7%B9%EC%A0%95%EC%9D%8C_NM_%EB%AA%A8%EC%85%98_3X.gif?type=w750");
+        background-size: 100%; 
+    }
+    .article>ol>li:nth-child(2)>a{
+        background-image: url("https://t1.daumcdn.net/daumtop_chanel/op/20200723055344399.png");
+        background-size: 100% 150px;
+    }
+    .article>ol>li:nth-child(3)>a{
+        background-image: url("https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png");
+        background-repeat: no-repeat;
+    }
+    #footer{
+        clear: both;
+        text-indent: 50%;
+    }
+</style>
+</head>
+<body>
+<div id="header">
+    <h1>비트교육센터</h1>
+</div>    
+<div id="navi">
+    <ul>
+        <li><a href="#">menu1</a></li>
+        <li><a href="#">menu2</a></li>
+        <li><a href="#">menu3</a></li>
+        <li><a href="#">menu4</a></li>
+    </ul>
+</div>    
+<div id="content">
+<h2>환영합니다</h2>
+<img src="imgs/index.jpg"/>
+</div>    
+<div class="article">
+    <ol>
+        <li><a href="http://naver.com">NAVER</a></li>
+        <li><a href="http://daum.net">DAUM</a></li>
+        <li><a href="http://google.com">GOOGLE</a></li>
+    </ol>
+</div>    
+<div id="footer">
+    (주)비트컴퓨터<br/>
+    <address>서울특별시 종로구 종로 69 YMCA 7층</address><br/>
+    <p>Copyright &copy; 비트캠프 All rights reserved.</p>
+</div>    
+    
+</body>
+</html>

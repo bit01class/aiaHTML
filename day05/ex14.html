@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title> Title </title>
+</head>
+<body>
+    <h1>queryselector</h1>
+    <ul>
+        <li><img src="imgs/big01.jpg" /></li>
+        <li><img src="imgs/big02.jpg" /></li>
+        <li><img src="imgs/big03.jpg" /></li>
+        <li><img src="imgs/big04.jpg" /></li>
+        <li><img src="imgs/big05.jpg" /></li>
+        <li><img src="imgs/big06.jpg" /></li>
+    </ul>
+    <script type="text/javascript">
+    var ul=document.querySelector('ul');
+    function prev(){
+        var lis=document.querySelectorAll('li');
+        var li=lis[lis.length-1];
+        ul.prepend(li);
+    }
+    function next(){
+        var li=document.querySelector('li');
+        ul.appendChild(li);
+    }
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

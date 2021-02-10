@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title> Title </title>
+<style rel="stylesheet" type="text/css">
+    div{
+        width: 50px;
+        height: 50px;
+        background-image: url(imgs/car.png);
+        background-repeat: no-repeat;
+        background-size: 50px;
+    }    
+</style>
+<script type="text/javascript">
+var div;
+window.onload=function(){
+    div=document.querySelector('div');
+    div.style.marginTop='0px';
+    div.style.marginLeft='0px';
+window.onkeydown=function(e){
+    var x=parseInt(div.style.marginLeft);
+    var y=parseInt(div.style.marginTop);
+    if(e.keyCode==40)
+      div.style.marginTop=y+10+'px';
+    else if(e.keyCode==38)
+      div.style.marginTop=y-10+'px';
+    else if(e.keyCode==39)
+        div.style.marginLeft=x+10+'px';
+    else if(e.keyCode==37)
+        div.style.marginLeft=x-10+'px';
+  };
+};
+    
+</script>
+</head>
+<body>
+    <div></div>
+</body>
+</html>
+
+
+
+
+
+
+

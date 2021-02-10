@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<style rel="stylesheet" type="text/css">
+    div{
+        width: 204px;
+    }
+    div>div{
+        width: 100px;
+        height: 100px;
+        display: inline-block;
+        background-color: aqua;
+    }    
+    div>div:first-child{
+        border-top: 1px solid gray;
+        border-left: 1px solid gray;
+        /*border-top-left-radius: 100px;*/
+        border-radius: 100px 0px 0px 0px;
+    }   
+    div>div:nth-child(2){
+        border-top: 1px solid gray;
+        border-right: 1px solid gray;
+        /*border-top-right-radius: 100px;*/
+        border-radius: 0px 100px 0px 0px;
+    }   
+    div>div:nth-child(3){
+        border-bottom: 1px solid gray;
+        border-left: 1px solid gray;
+        /*border-bottom-left-radius: 100px;*/
+        border-radius: 0px 0px 0px 100px;
+    }  
+    div>div:nth-child(4){
+        border-bottom: 1px solid gray;
+        border-right: 1px solid gray;
+        /*border-bottom-right-radius: 100px;*/
+        border-radius: 0px 0px 100px 0px;
+    }
+    
+    
+    
+</style>
+</head>
+<body>
+    <div>
+    <div>box1</div><div>box2</div><div>box3</div><div>box4</div>
+    </div>
+</body>
+</html>
+
+
+
+
+
+

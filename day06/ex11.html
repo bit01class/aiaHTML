@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title> Title </title>
+<style rel="stylesheet" type="text/css">
+    nav{
+        background-color: gray;
+        height: 50px;
+    }
+    @media screen and (max-width:767px){
+        nav>ul{
+            display: none;
+            list-style: none;
+            padding: 0px;
+        }
+        nav>ul>li{
+            position: relative;
+            top:  50px;
+        }
+        nav>ul>li>a{
+            display: block;
+            height: 50px;
+            background-color: darkgray;
+        }
+        nav>div{
+            float: right;
+            width: 30px;
+            height: 30px;
+            border-radius: 10px;
+            background-color: white;
+            margin: 5px;
+            padding: 5px;
+        }
+        nav>div>span{
+            border: 1px solid gray;
+            display: block;
+            margin: 5px;
+        }
+    }
+    @media screen and (min-width:768px){
+        nav>ul{
+            list-style: none;
+            padding: 0px;
+            width: 400px;
+            margin: 0px auto;
+        }
+        nav>ul>li{
+            float: left;
+            width: 100px;
+            background-color: darkgray;
+        }
+        nav>ul>li>a{
+            display: block;
+            height: 50px;
+        }
+    }
+</style>
+<script type="text/javascript">
+window.onload=function(){
+    var btn=document.querySelector('nav>div');
+    btn.onclick=function(){
+        var ul=document.querySelector('nav>ul');
+        if(ul.style.display==''){
+            ul.style.display='block';
+        }else{
+            ul.style.display='';
+        }
+    };
+};
+</script>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a>menu1</a></li>
+            <li><a>menu2</a></li>
+            <li><a>menu3</a></li>
+            <li><a>menu4</a></li>
+        </ul>
+        <div>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+</body>
+</html>

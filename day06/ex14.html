@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> Title </title>
+<style rel="stylesheet" type="text/css">
+   
+</style>
+<script type="text/javascript">
+var h1,btn,input,chbox,select;
+    window.onload=function(){
+        h1=document.querySelector('h1');
+        input=document.querySelectorAll('input')[0];
+        chbox=document.querySelectorAll('input')[1];
+        select=document.querySelector('select');
+        btn=document.querySelector('button');
+//        document.onmousemove=function(e){
+//            console.log(e.clientX,e.clientY);
+//            btn.style.left=e.clientX-10+'px';
+//            btn.style.top=e.clientY-10+'px';
+//        };
+        select.onchange=function(e){
+            console.log(select.value);
+        };
+        input.onfocus=function(){
+            input.value='';
+        };
+        input.onblur=function(){
+            if(input.value==''){
+                input.value='입력하세요';
+            }
+        };
+        h1.ondrag=function(){
+            console.log('복사금지');
+        };
+    };
+    
+</script>
+</head>
+<body>
+    <h1>그밖에 이벤트</h1>
+    <div>
+        <input type="text" value="입력하세요"/>
+        <input type="checkbox"/>
+        <select>
+            <option>item1</option>
+            <option>item2</option>
+            <option>item3</option>
+            <option>item4</option>
+        </select>
+        <button>btn</button>
+    </div>
+    
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

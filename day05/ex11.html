@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title> Title </title>
+<style rel="stylesheet" type="text/css">
+    ul{
+        list-style:none;
+        padding: 0px;
+        width: 528px;
+        height: 176px;
+        overflow: hidden;
+        margin: 0px auto;
+    }
+    ul>li{
+        float: left;
+        width: 176px;
+        height: 176px;
+    }
+</style>
+</head>
+
+<body>
+    <h1>node 제어</h1>
+    <ul>
+        <li><img src="imgs/sm01.jpg"/></li>
+        <li><img src="imgs/sm02.jpg"/></li>
+        <li><img src="imgs/sm03.jpg"/></li>
+        <li><img src="imgs/sm04.jpg"/></li>
+        <li><img src="imgs/sm05.jpg"/></li>
+        <li><img src="imgs/sm06.jpg"/></li>
+    </ul>
+</body>
+<script type="text/javascript">
+var ul=document.children[0].children[1].children[1];
+function next(){
+    var li1=document.children[0].children[1].children[1].children[0]; 
+    ul.appendChild(li1);
+}
+setInterval(next,1000);
+</script>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

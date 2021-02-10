@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title> Title </title>
+<script type="text/javascript">
+/*
+함수와 메서드
+*/    
+function Func01(i){
+    if(i){
+    this.name=i;
+    }
+    console.log(window==this);
+}
+//Func01("test");
+    Func01.prototype.name="나";
+    var a=new Func01("너");
+    
+    console.log(a.name);
+    
+</script>
+</head>
+
+<body>
+
+</body>
+</html>

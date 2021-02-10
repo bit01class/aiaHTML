@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title> Title </title>
+<script type="text/javascript">
+window.onload=function(){
+    var h1=document.querySelector('h1');
+    var btn=document.querySelector("button");
+    h1.onclick=function(){
+        console.log('클릭');
+    };
+    h1.onmousedown=function (){
+        console.log('mousedown');
+    };
+    h1.onmouseup=function(){
+        console.log('mouseup');
+    };
+    h1.onmouseover=function(){
+        console.log('mouseover');
+    };
+    h1.onmouseout=function(){
+        console.log('mouseout');
+    };
+    h1.ondblclick=function(){
+        console.log('dbclick');
+    }
+    
+};    
+    
+</script>
+</head>
+<body>
+    <h1>마우스 이벤트</h1>
+    <button>btn</button>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title> Title </title>
+<script type="text/javascript">
+function btnEv(){
+    alert(this.innerText);
+}
+var btns;
+window.onload=function(){
+    btns=document.querySelectorAll('button');
+    btns[0].onclick=btnEv;
+    btns[0].onclick=function(){
+                    console.log(this.innerText);
+                    };
+
+    btns[1].addEventListener('onclick',btnEv);
+    btns[1].addEventListener('onclick',function(){
+        console.log(this.innerText);
+    });
+    btns[1].removeEventListener('onclick',btnEv);
+}; 
+    
+    
+</script>
+</head>
+<Body>
+    <button>btn1</button>
+    <button>btn2</button>
+    <button onclick="btnEv();">btn3</button>
+</body>
+</html>
+
+
+

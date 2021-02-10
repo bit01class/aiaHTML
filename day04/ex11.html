@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title> Title </title>
+<script type="text/javascript">
+console.log(this==window);  
+var a=4321;
+window.a=4321;
+function func01(){
+    console.log(this==window);
+    window.a=1234;
+}
+func01();
+console.log(a);
+console.log('--------------------------');
+var obj={func02:function(){
+    console.log(this==window);
+}};
+obj.func02();    
+var arr=[function(){
+    console.log(this==window);
+}];
+arr[0]();
+    
+var obj2=new Object();
+    
+obj2.func03=function(){
+    console.log(this==obj2);
+};
+    
+obj2.func03();
+console.log('--------------------------');
+num=1111;
+name='guest';
+var obj3={
+    num:0,
+    name:'',
+//    setNum:(a)=>{this.num=a;},
+//    getNum:()=>{return this.num},
+    setName:function(a){
+        this.name=a;
+    },
+    getName:function(){
+        return this.name;
+    }
+};
+obj3.setName('abcd');
+console.log(obj3.getName());
+console.log(name);
+obj3.setNum(2222);
+console.log(obj3.getNum());
+console.log(num);
+</script>
+</head>
+
+<body>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

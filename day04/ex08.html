@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title> Title </title>
+<script type="text/javascript">
+
+var obj1={"key1":"val1","key2":"val2","key3":"val3"};
+    console.log(obj1['key2']);
+    console.log('----------------------');
+var k1=false;
+var v1=false;
+var k2=true;
+var v2=null;
+var obj2={
+    k1:v1,k2:v2,'key3':v1,key4:v2,1111:'1array',f1:function(){console.log('obj2-f1 run');}
+};
+    obj2.key3='val3';
+    obj2.key3='val4';
+//    obj2.key5='val5';
+    obj2['key5']='val5';
+    
+    console.log(obj2.k1);
+    console.log(obj2.k2);
+    console.log(obj2.key3);
+    console.log(obj2.key4);
+    console.log(obj2.key5);
+    console.log(obj2[1111]);
+    console.log();
+    
+</script>
+</head>
+
+<body>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

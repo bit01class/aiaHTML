@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title> Title </title>
+<script type="text/javascript">
+var input;
+var target;
+var btn;
+var h1;
+window.onload=function(){
+    input=document.querySelector('input');
+    target=document.querySelector('#target');
+    btn=document.querySelector('button');
+    h1=document.querySelector('h1');
+    window.onkeydown=function(e){
+        console.log("keydown(",e);  
+    };
+//    window.onkeyup=function(e){
+//        console.log("keyup(",e);
+//        target.innerText=input.value;
+//    };
+//    window.onkeypress=function(e){
+//        console.log("keypress(",e);
+//    };
+};    
+</script>
+</head>
+<body>
+    <h1>key event</h1>
+    <div>
+        <input type="text"/>
+        <button>btn</button>
+    </div>
+    <div id="target"></div>
+</body>
+</html>

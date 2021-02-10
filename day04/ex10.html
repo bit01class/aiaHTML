@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title> Title </title>
+<script type="text/javascript">
+func01(1,2);
+
+function func01(){
+    
+    console.log('func01() run...');
+    for(var i=0; i<arguments.length; i++){
+        console.log(arguments[i]);
+    }
+}
+    
+var a=0;
+var func02=function(){
+    console.log('func02() run...'+a);
+}; 
+function func03(a){
+    // callback function
+    
+    a();
+}
+
+//    window.setInterval(func02,1000);
+var msg='자바';
+function func4(){
+    var msg='클로저';
+    var func=function(){
+        console.log('inner...'+msg);
+    };
+    return func;
+}
+var clz=func4();
+clz();
+clz();
+    
+/*
+window.func01=function(){
+    console.log('func01() run...');
+};
+*/    
+    
+    
+</script>
+</head>
+
+<body>
+
+</body>
+</html>
