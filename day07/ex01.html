@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title> Title </title>
+  <style rel="stylesheet" type="text/css">
+    body {
+      background-color: black;
+    }
+
+    body>* {
+      margin: 0px;
+      padding: 0px;
+    }
+
+    body>div {
+      background-color: white;
+      width: 800px;
+      margin: 0px auto;
+    }
+
+    #header {
+      padding: 20px;
+    }
+
+    #header>h1 {
+      width: 149px;
+      height: 33px;
+      background-image: url(imgs/logo.png);
+      background-repeat: no-repeat;
+      text-indent: -999px;
+    }
+
+    #navi {
+      background-color: gray;
+      height: 50px;
+    }
+
+    #navi>ul {
+      width: 440px;
+      margin: 0px auto;
+    }
+
+    #navi>ul>li {
+      float: left;
+      list-style: none;
+      margin: 0px 5px;
+    }
+
+    #navi>ul>li>a {
+      display: block;
+      width: 100px;
+      height: 50px;
+      background-color: darkgray;
+      line-height: 50px;
+      text-align: center;
+      color: white;
+      text-decoration: none;
+    }
+
+    #navi>ul>li>ol {
+      padding: 0px;
+      position: absolute;
+      display: none;
+    }
+
+    #navi>ul>li>ol>li {
+      list-style: none;
+      border-top: 3px solid white;
+    }
+
+    #navi>ul>li>ol>li>a {
+      display: block;
+      width: 100px;
+      height: 50px;
+      background-color: darkgray;
+      text-decoration: none;
+      text-align: center;
+      line-height: 50px;
+      color: white;
+    }
+      .carousel{
+          overflow: hidden;
+          width: 320px;
+          height: 320px;
+          margin: 0px auto;
+      }
+      .carousel>ul{
+          width: 1920px;
+          /*animation-name: ani1;*/
+          animation-duration: 5s;
+          animation-iteration-count: infinite;
+          animation-direction: alternate;
+          animation-timing-function: linear;
+          animation-play-state: paused;
+          padding: 0px;
+      }
+      .carousel>ul>li{
+          list-style: none;
+          width: 320px;
+          float: left;
+      }
+      @keyframes ani1{
+          from{margin-left: 0px;}
+          to{margin-left: -1600px;}
+      }
+      .carousel{}
+      .carousel>ul{}
+      .carousel>ul+a{
+          background-color: black;
+          position: relative;
+          opacity: 0.3;
+          top: -323px;
+          width: 50px;
+          height: 320px;
+          display: inline-block;
+      }
+      .carousel>ul+a+a{
+          background-color: black;
+          opacity: 0.3;
+          position: relative;
+          top: -323px;
+          height: 320px;
+          left: 220px;
+          width: 50px;
+          display: inline-block;
+      }
+      #footer{
+          clear: both;
+      }
+  </style>
+  <script type="text/javascript">
+var mn2, mn3, carousel,prv,nxt,ul;
+var cnt=0;
+window.onload = function() {
+  mn2 = document.querySelectorAll('#navi>ul>li')[1];
+  mn3 = document.querySelectorAll('#navi>ul>li')[2];
+  carousel=document.querySelector('.carousel');
+  carousel.innerHTML=carousel.innerHTML
+      +'<a href="#">prev</a>'+'<a href="#">next</a>';
+  ul=document.querySelector('.carousel>ul');
+  prv=document.querySelector('.carousel>ul+a');
+  nxt=document.querySelector('.carousel>ul+a+a');
+
+  prv.addEventListener('click',function(e){
+      e.preventDefault();
+      cnt--;
+      if(cnt<0) cnt=5;
+      ul.style.marginLeft=-320*cnt+'px';
+  });
+  nxt.onclick=function(e){
+      cnt++;
+      if(cnt==6) cnt=0;
+      ul.style.marginLeft=-320*cnt+'px';
+      return false;
+  };
+  mn2.addEventListener('mouseover', menuCallback);
+  mn2.addEventListener('mouseout', menuCallback);
+  mn3.addEventListener('mouseover', menuCallback);
+  mn3.addEventListener('mouseout', menuCallback);
+  window.setInterval(loop,1000);
+};
+function loop(){
+    nxt.onclick();
+//    console.log(carousel.style.animationPlayState);
+//    if(carousel.style.animationPlayState==''){
+//        console.log('running');
+//        carousel.style.animationPlayState='running';
+//    }else if(carousel.style.animationPlayState=='paused'){
+//        console.log('running');
+//        carousel.style.animationPlayState='running';
+//    }else {
+//        console.log('paused');
+//        carousel.style.animationPlayState='paused';
+//    }
+}
+
+function menuCallback(e) {
+  var me = this.querySelector('ol');
+  console.log(me.style.display);
+  if (me.style.display == '')
+    me.style.display = 'block';
+  else if (me.style.display == 'block')
+    me.style.display = '';
+}
+  </script>
+</head>
+
+<body>
+  <div>
+    <div id="header">
+      <h1>비트교육센터</h1>
+    </div>
+    <div id="navi">
+      <ul>
+        <li><a href="#">menu1</a></li>
+        <li>
+          <a href="#">menu2</a>
+          <ol>
+            <li><a href="#">menu2-1</a></li>
+            <li><a href="#">menu2-2</a></li>
+            <li><a href="#">menu2-3</a></li>
+          </ol>
+        </li>
+        <li>
+          <a href="#">menu3</a>
+          <ol>
+            <li><a href="#">menu3-1</a></li>
+            <li><a href="#">menu3-2</a></li>
+            <li><a href="#">menu3-3</a></li>
+            <li><a href="#">menu3-4</a></li>
+          </ol>
+        </li>
+        <li><a href="#">menu4</a></li>
+      </ul>
+    </div>
+    <div id="content">
+      <div class="carousel">
+        <ul>
+          <li><a href="#"><img src="imgs/big01.jpg" /></a></li>
+          <li><a href="#"><img src="imgs/big02.jpg" /></a></li>
+          <li><a href="#"><img src="imgs/big03.jpg" /></a></li>
+          <li><a href="#"><img src="imgs/big04.jpg" /></a></li>
+          <li><a href="#"><img src="imgs/big05.jpg" /></a></li>
+          <li><a href="#"><img src="imgs/big06.jpg" /></a></li>
+        </ul>
+      </div>
+    </div>
+    <div id="footer">
+      <address>서울특별시 종로구 종로 69 YMCA 7층</address>
+      Copyright &copy; 비트캠프 All rights reserved.
+
+    </div>
+  </div>
+</body></html>
+
+
+
+
+
+
+
+
+
+
+
+
