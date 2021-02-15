@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+/* 
+*readyState 
+ 
+Value	State	Description
+0		UNSENT				open()전 통신준비상태
+1		OPENED				open()했을때
+2		HEADERS_RECEIVED	send()했을때
+3		LOADING	Downloading; 응답중인 상태
+4		DONE				응답완료후 통신을 끝난상태
+UNSENT
+
+
+
+*/
+
+
+var target,xhr;
+window.onload=function(){
+	target=document.querySelector('#target');
+	xhr=new XMLHttpRequest();
+	xhr.onreadystatechange=function(e){
+		if(xhr.readyState==4){
+			console.log(e);
+			if(xhr.status==200){
+			var msg=xhr.responseText;
+			target.innerHTML=msg;
+			}else{
+				alert("파싱오류");
+			}
+		}
+	};
+	xhr.open('get','ex02.html');
+	xhr.send();
+};
+</script>
+</head>
+<body>
+	<h1>비동기통신</h1>
+	<div id="target"></div>
+	<p>상단의 내용은 ex02.html의 내용입니다</p>
+</body>
+</html>
+
+
+
+
