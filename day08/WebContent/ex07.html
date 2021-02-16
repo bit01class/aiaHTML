@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<style rel='stylesheet' type="text/css">
+    .cl01{
+        color: red;
+    }
+    .cl02{
+        background-color: aqua;
+    }
+</style>
+<script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+<script type="text/javascript">
+window.onload=function(){
+    setInterval(loop,1000);
+};
+var i=0;
+function loop(){
+    if(i<6)i++;
+    else i=1;
+    $('img').attr('src','imgs/big0'+i+'.jpg');
+}
+</script>
+	<title> Title </title>
+</head>
+<body>
+<h1>jquery 속성제어</h1>
+    <p>dom 속성제어</p>
+    <ul>
+        <li><a href="ex06.html">ex06</a></li>
+        <li><a href="http://naver.com">naver</a></li>
+        <li><a href="http://google.com">google</a></li>
+    </ul>
+    <div>
+        <img src="imgs/big01.jpg"/>
+    </div>
+    <form>
+        <div>
+            <label>id</label>
+            <input type="text"/>
+        </div>
+        <div>
+            <label>pw</label>
+            <input type="password"/>
+        </div>
+        <div>
+            <input type="checkbox"/>
+            <label>box1</label>
+            <input type="checkbox"/>
+            <label>box2</label>
+        </div>
+        <div>
+            <input type="radio" name="ra"/>
+            <label>ra1</label>
+            <input type="radio" name="ra"/>
+            <label>ra2</label>
+        </div>
+        <div>
+            <select>
+                <option>item1</option>
+                <option>item2</option>
+                <option>item3</option>
+                <option>item4</option>
+            </select>
+        </div>
+
+        <div>
+            <input type="submit" value="submit"/>
+            <input type="reset" value="reset"/>
+            <button>btn</button>
+        </div>
+    </form>
+</body>
+</html>

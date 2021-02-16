@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	table{width: 600px;}
+</style>
+<script type="text/javascript">
+var table;
+window.onload=function(){
+	table=document.querySelector('table');
+	list();
+};
+var xhr,data;
+var result='<tr><th>deptno</th><th>dname</th><th>loc</th></tr>';
+function list(){
+	xhr=new XMLHttpRequest();
+	xhr.onreadystatechange=function(){
+		if(xhr.readyState==4&&xhr.status==200){
+			data=JSON.parse(xhr.responseText);
+
+			for(var ele of data.dept){
+				result+='<tr>';
+				result+='<td>'+ele.deptno+'</td>';
+				result+='<td>'+ele.dname+'</td>';
+				result+='<td>'+ele.loc+'</td>';
+				result+='</tr>';
+			}
+
+			table.innerHTML=result;
+		}
+	};
+	xhr.open('get','ex03.jsp',true);
+	xhr.send();
+}
+
+</script>
+</head>
+<body>
+	<h1>dept list</h1>
+	<table></table>
+</body>
+</html>

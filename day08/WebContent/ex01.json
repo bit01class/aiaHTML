@@ -1,0 +1,6 @@
+{"students":[
+	{"num":1111,"name":"user1","kor":91,"eng":83,"math":75},
+	{"num":2222,"name":"user2","kor":95,"eng":78,"math":88},
+	{"num":3333,"name":"user3","kor":81,"eng":83,"math":77},
+	{"num":4444,"name":"user4","kor":74,"eng":89,"math":75}
+]}

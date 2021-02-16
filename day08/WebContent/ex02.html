@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	table{width: 600px;}
+</style>
+<script type="text/javascript">
+window.onload=function(){
+	list();
+};
+var xhr,data;
+function list(){
+	xhr=new XMLHttpRequest();
+	xhr.onreadystatechange=listCallback;
+	xhr.open('get','ex01.json');
+	xhr.send();
+}
+function listCallback(){
+	if(xhr.readyState==4&&xhr.status==200){
+		data=xhr.responseText;
+		var obj=JSON.parse(data);
+		for(var i=0; i<obj.students.length; i++){
+			var stu=obj.students[i];
+			console.log(stu.num,stu.name,stu.kor,stu.eng,stu.math);
+		}
+	}
+}
+</script>
+</head>
+<body>
+	<h1>json parsing</h1>
+	<table>
+		<thead>
+			<tr>
+				<th>학번</th>
+				<th>이름</th>
+				<th>국어</th>
+				<th>영어</th>
+				<th>수학</th>
+			</tr>
+		</thead>
+	</table>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

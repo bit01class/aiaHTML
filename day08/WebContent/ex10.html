@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title> Title </title>
+<style rel="stylesheet" type="text/css">
+    div{
+        margin: 0px auto;
+        width: 960px;
+        height: 320px;
+    }
+    div>ul{
+        list-style: none;
+        padding: 0px;
+        width: 960px;
+        height: 320px;
+        overflow: hidden;
+    }
+    div>ul>li{
+        float: left;
+        width: 320px;
+    }
+    div>ul>li>img{}
+</style>
+<script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+<script type="text/javascript">
+window.onload=function(){
+    setInterval(loop,1000);
+};
+function loop(){
+    $('ul>li').first().appendTo('ul');
+}
+
+</script>
+</head>
+<body>
+<div>
+
+    <ul>
+        <li><img src="imgs/big01.jpg" alt=""></li>
+        <li><img src="imgs/big02.jpg" alt=""></li>
+        <li><img src="imgs/big03.jpg" alt=""></li>
+        <li><img src="imgs/big04.jpg" alt=""></li>
+        <li><img src="imgs/big05.jpg" alt=""></li>
+        <li><img src="imgs/big06.jpg" alt=""></li>
+    </ul>
+
+</div>
+</body>
+</html>

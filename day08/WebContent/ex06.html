@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title> Title </title>
+<style rel="stylesheet" type="text/css">
+    h1{
+        background-color: green;
+
+    }
+</style>
+<script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+<script type="text/javascript">
+window.onload=function(){
+//    document.querySelector('h1').style.backgroundColor='blue';
+    $('h1').css('color','red');
+    console.log($('h1').css(['color','background-color']));
+    console.log(document.querySelector('h1').style.backgroundColor);
+    console.log($('h1').css('font-size'));
+
+//    $('ul>li').css('background-color',function(idx,val){
+////        var arr=['red','green','blue','gray','yellow'];
+////        return arr[idx];
+//        console.log(idx,val);
+//        return 'rgb('+255/5*idx+',0,0)';
+//    });
+//    $('ul>li').css({'color':'red','background-color':'gray'});
+//    $('form>div>label:first-child').css('background-color','gray');
+//    $(':checkbox').next().css('background-color','gray');
+//    $(':radio').next().css('background-color','gray');
+};
+</script>
+</head>
+<body>
+    <h1>jquery css제어</h1>
+    <p>css메서드를 이용한 dom UI제어</p>
+    <ul>
+        <li>item1</li>
+        <li>item2</li>
+        <li>item3</li>
+        <li>item4</li>
+        <li>item5</li>
+    </ul>
+    <ol>
+        <li>item1</li>
+        <li>item2</li>
+        <li>item3</li>
+        <li>item4</li>
+        <li>item5</li>
+    </ol>
+    <form>
+        <div>
+            <label>id</label>
+            <input type="text"/>
+        </div>
+        <div>
+            <label>pw</label>
+            <input type="password"/>
+        </div>
+        <div>
+            <input type="checkbox"/>
+            <label>box1</label>
+            <input type="checkbox"/>
+            <label>box2</label>
+        </div>
+        <div>
+            <input type="radio" name="ra"/>
+            <label>ra1</label>
+            <input type="radio" name="ra"/>
+            <label>ra2</label>
+        </div>
+        <div>
+            <textarea></textarea>
+        </div>
+
+        <div>
+            <input type="submit" value="submit"/>
+            <input type="reset" value="reset"/>
+            <button>btn</button>
+        </div>
+    </form>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
