@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title> Title </title>
+<style rel="stylesheet" type="text/css">
+    h1+div{
+        width: 300px;
+
+        overflow: hidden;
+    }
+    ul{
+        list-style: none;
+        padding: 0px;
+        width: 1000px;
+        height: 100px;
+    }
+    ul>li{
+        float: left;
+        width: 100px;
+    }
+    ul>li>img{
+        width: 100px;
+    }
+
+</style>
+<script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+<script type="text/javascript">
+var cnt=0,next;
+$(document).ready(function(){
+    $('ul').append($('li').first().clone())
+    .prepend($('li').last().prev().clone())
+    .css('marginLeft','-100px');
+
+
+    var prev=$('<a href="#">prev</a>').click(prevFunc);
+    next=$('<a href="#">next</a>').click(nextFunc);
+
+    $('div').append(prev).append(next);
+//    setInterval(loop,1000);
+});
+function loop(){
+    next.click();
+}
+var max=4,min=-1;
+function prevFunc(){
+    console.log(cnt);
+    if(cnt-->min){
+        var x=parseInt($('ul').css('marginLeft'));
+        $('ul').css('marginLeft',x+100+"px");
+    }else{
+        min=0;
+        cnt=5;
+        $('ul').css('marginLeft',"-500px");
+    }
+    return false;
+}
+function nextFunc(){
+    if(cnt++<max){
+        var x=parseInt($('ul').css('marginLeft'));
+        $('ul').css('marginLeft',x-100+"px");
+    }else{
+        max=5;
+        cnt=0;
+        $('ul').css('marginLeft',"0px");
+    }
+    return false;
+}
+</script>
+</head>
+<body>
+    <h1>이벤트 실습2</h1>
+    <div>
+        <ul>
+            <li><img src="imgs/big01.jpg"/></li>
+            <li><img src="imgs/big02.jpg"/></li>
+            <li><img src="imgs/big03.jpg"/></li>
+            <li><img src="imgs/big04.jpg"/></li>
+            <li><img src="imgs/big05.jpg"/></li>
+            <li><img src="imgs/big06.jpg"/></li>
+        </ul>
+    </div>
+
+</body>
+</html>

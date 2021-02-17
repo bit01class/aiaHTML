@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title> Title </title>
+<script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+    $(':text').eq(1)
+        .keyup(function(){
+            if($(this).val().length==6){
+                $(this).next().focus();
+            }
+    })
+        .focusin(function(){
+            $(this).select();
+    })
+        .focusout(function(){
+            if($(this).val().length<6){
+                alert('6자리 입력바람');
+                $(this).focusin();
+            }
+    });
+    $('form').submit(function(e){
+//        e.preventDefault();
+
+        if($(':text').val()==''
+                ||$(':text').val().length<4){
+            $(':text').select();
+            return false;}
+        if($(':password').val()==''){
+            $(':password').focus();
+            return false;
+        }
+
+        return true;
+    });
+    $('select').change(function(){
+        console.log($(this).val());
+    });
+});
+</script>
+</head>
+<body>
+    <h1>회원가입</h1>
+    <form action="ex09.html">
+        <div>
+            <label>id</label>
+            <input type="text"/>
+        </div>
+        <div>
+            <label>pw</label>
+            <input type="password"/>
+        </div>
+        <div>
+            <label>주민번호</label>
+            <input type="text"/>
+            - <input type="text"/>
+        </div>
+        <div>
+            <input type="checkbox"/>
+            <label>chk1</label>
+            <input type="checkbox"/>
+            <label>chk2</label>
+        </div>
+        <div>
+            <input type="radio" name="ra"/>
+            <label>ra1</label>
+            <input type="radio" name="ra"/>
+            <label>ra2</label>
+        </div>
+        <div>
+            <select>
+                <option>item1</option>
+                <option>item2</option>
+                <option>item3</option>
+                <option>item4</option>
+            </select>
+        </div>
+        <div>
+            <textarea></textarea>
+        </div>
+        <div>
+            <button>submit</button>
+        </div>
+    </form>
+</body>
+</html>

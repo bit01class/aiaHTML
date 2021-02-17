@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title> Title </title>
+<script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+<script type="text/javascript">
+    var callback=function(){
+        alert('버튼 클릭');
+        return false;
+    };
+$(document).ready(function(){
+//    $('button').click(function(){
+//        console.log('버튼 클릭');
+//    });
+//    $('button').click(callback);
+    $('a').on('click mouseout',callback);
+//    $('a').off('click',callback);
+    $('button').one('click',callback);
+});
+</script>
+</head>
+<body>
+    <h1>이벤트</h1>
+    <input type="text"/><button>입력</button>
+    <a href="ex08.html">back</a>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

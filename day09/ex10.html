@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title> Title </title>
+<script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+
+      $('h1').click(function(){
+          $('<button>btn</button>').appendTo('div');
+      });
+      //////////
+//      $(document).delegate('button','click',function(){
+//          alert('클릭');
+//      });
+        $(document).on('click','button',function(){
+            alert('클릭');
+        });
+    });
+</script>
+</head>
+<body>
+    <h1>이벤트 attach</h1>
+    <div></div>
+    <button>old</button>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

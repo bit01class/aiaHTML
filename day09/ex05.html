@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title> Title </title>
+<script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+<script type="text/javascript">
+window.onload=function(){ console.log('onload01');};
+window.onload=function(){ console.log('onload02');};
+    $(window).load(function(){
+        console.log('load',$('h1').text());
+    });
+    $(document).ready(function(){
+        console.log('ready1',$('h1').text());
+    });
+    $(window).unload(function(){
+        console.log('unload',$('h1').text());
+    });
+    $(window).resize(function(){
+        console.log('resize',$('h1').text());
+    });
+    $(function(){
+       console.log('callback',$('h1').text());
+    });
+    $(document).ready(function(){
+        console.log('ready2',$('h1').text());
+    });
+//document.addEventListener('load',function(){});
+//    $(document).on('ready',function(){
+//        console.log($('h1').text());
+//    });
+</script>
+</head>
+<body>
+    <h1>jquery 이벤트</h1>
+    <div></div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

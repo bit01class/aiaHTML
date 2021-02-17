@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title> Title </title>
+<style rel="stylesheet" type="text/css">
+    div{
+        width: 200px;
+    }
+    input{
+        height: 50px;
+        display: block;
+        border: 2px solid green;
+        border-radius: 10px;
+    }
+    div>div>span{
+        display: block;
+        border-top-style: dashed;
+        border-top-width: 1px;
+        border-top-color: rgb(200,200,200);
+
+    }
+</style>
+<script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+    var callback=function(e){
+        console.log(e.type,e.key,e.keyCode,$(this).val());
+    };
+    $('input')
+        .keydown(callback)
+        .keypress(callback)
+        .keyup('this.value',function(e){
+        var msg=$(this).val();
+        $('div>div').append('<span>'+e.data+'</span>');
+    });
+});
+</script>
+</head>
+<body>
+    <h1>키 이벤트</h1>
+    <div>
+        <input type="text" />
+        <div></div>
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
