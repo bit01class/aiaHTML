@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title> Title </title>
+<style rel="stylesheet" type="text/css">
+    div{
+        background-color: rgb(255,0,0);
+        width: 100px;
+        height: 100px;
+    }
+</style>
+<script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+<script type="text/javascript" src="js/jquery-ui.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+    var obj={
+        duration:1000
+        ,easing:'easeInBounce'
+        ,complete:function(){console.log('complete');}
+        ,start:function(){console.log('start');}
+        ,fail:function(){console.log('fail');}
+        ,always:function(){console.log('always');}
+        ,done:function(){console.log('done');}
+        ,progress:function(a,b,c){console.log(b,c);}
+    };
+    $('div')
+        .animate({'marginLeft':'400px'},2000)
+
+        .delay(3000)
+        .animate({'marginTop':'400px'},2000)
+        .animate({'marginLeft':'0px'},2000)
+        .animate({'marginTop':'0px'},2000);
+    $('button').click(function(){
+        $('div').clearQueue().stop();
+    });
+});
+</script>
+</head>
+<body>
+   <button>stop</button>
+    <div>box</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title> Title </title>
+<link rel="stylesheet" type="text/css" href="css/jquery-ui.css"/>
+<style>
+  body>div>ul { width: 150px; }
+</style>
+<script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+<script type="text/javascript" src="js/jquery-ui.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+    $('body>div>ul').menu();
+});
+
+</script>
+</head>
+<body>
+    <div>
+        <ul>
+            <li><div>menu1</div></li>
+            <li><div>menu2</div>
+                <ul>
+                    <li><div>
+                    <a href="#">menu2-1</a></div>
+                    </li>
+                    <li><div>
+                    <a href="#">menu2-2</a></div>
+                    </li>
+                    <li><div>
+                    <a href="#">menu2-3</a></div>
+                    </li>
+                </ul>
+            </li>
+            <li><div>menu3</div>
+                <ul>
+                    <li><div>
+                    <a href="#">menu3-1</a></div>
+                    </li>
+                    <li><div>
+                    <a href="#">menu3-2</a></div>
+                    </li>
+                    <li><div>
+                    <a href="#">menu3-3</a></div>
+                    </li>
+                </ul></li>
+            <li><div>menu4</div></li>
+        </ul>
+
+    </div>
+</body>
+</html>
