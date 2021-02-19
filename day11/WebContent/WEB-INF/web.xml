@@ -12,6 +12,14 @@
   	<servlet-name>empAdd</servlet-name>
   	<servlet-class>com.bit.xml.EmpAdd</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>empOne</servlet-name>
+  	<servlet-class>com.bit.xml.EmpOne</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>empOne</servlet-name>
+  	<url-pattern>/emp.xml</url-pattern>
+  </servlet-mapping>
   <servlet-mapping>
   	<servlet-name>empAdd</servlet-name>
   	<url-pattern>/addXml.bit</url-pattern>

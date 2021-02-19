@@ -71,7 +71,7 @@
 	#popup>div{
 		background-color: white;
 		width: 400px;
-		height: 400px;
+		height: 600px;
 		margin: 20px auto;
 		border-radius: 10px;
 	}
@@ -91,7 +91,7 @@
 	}
 	#popup>div>form>div>label:first-child{
 		display: inline-block;
-		width: 150px;
+		width: 100px;
 		text-align: left;
 		background-color: #cccccc;
 	}
@@ -126,12 +126,21 @@
 	#content>.loopImgs>ul>li>img{
 		width: 50px;
 	}
-
+	#content table{}
+	#content table tr:nth-child(2n){
+		background-color: #dddddd;
+	}
+	#content table tr>td{
+		cursor: pointer;
+	}
+	#content table tr>td:nth-child(1){
+		width: 80px;
+	}
 </style>
 <script type="text/javascript" src="js/jquery-1.12.4.js"></script>
 <script type="text/javascript">
 $(function(){
-	$('#popup').click(function(){
+	$('#popup').hide().click(function(){
 		$(this).hide();
 	}).children().first().click(function(e){
 		e.stopPropagation();
@@ -165,22 +174,83 @@ $(function(){
 	});
 	
 	$(document).on('click','#content button',function(){
-		modal();
+		modal('add');
 	});
 	
 
-	$('#popup form').submit(insertEmp);
+	$('#popup form').on('submit',function(e){
+		e.preventDefault();
+		if($(this).prev().text()=='입력페이지'){
+			insertEmp();
+		}else if($(this).prev().text()=='상세페이지'){
+			editEmp();
+		}else if($(this).prev().text()=='수정페이지'){
+			updateEmp();
+		}
+		return false;
+	});
+	
+	
+	
+	$(document).on('click','#content table tr>td',function(){
+		var table=$(this).parent().parent().parent();
+		if(table.prev().text()=='EMP LIST'){
+			var empno=$(this).parent().children().first().text();
+			$.ajax({
+				url:'emp.xml'
+				,type:'get'
+				,data:'empno='+empno
+				,error:function(xhr,state,err){
+					console.log(err);
+				}
+				,success:function(data){
+					
+					$('#popup form input').each(function(idx,ele){
+						$(this).val($(data).find('emp')
+									.children().eq(idx).html());	
+					});
+					modal('detail');
+				}
+			});
+		}
+	});
 });
 
-function modal(){
+function modal(msg){
+	if(msg=='add'){ 
+		$('#popup form>div').hide().filter('.add').show();
+		$('#popup h3').text('입력페이지');
+		$('#popup button').first().text('입력');
+		$('#popup form input').removeProp('readonly').val('');
+	}else if(msg=='detail'){ 
+		$('#popup form>div').hide().filter('.detail').show();
+		$('#popup h3').text('상세페이지');
+		$('#popup button').first().text('수정');
+		$('#popup form input').prop('readonly','readonly');
+	}else if(msg=='edit'){
+		$('#popup form>div').hide().filter('.detail').show();
+		$('#popup h3').text('수정페이지');
+		$('#popup button').first().text('수정');
+		$('#popup form input').removeProp('readonly')
+					.first().prop('readonly','readonly');
+	}
 	$('#popup').fadeIn(1000);
 }
-function insertEmp(e){
-	e.preventDefault();
+function editEmp(){
+	modal('edit');
+}
+function updateEmp(){
+	// ajax
+	$('#popup').hide().find('input').val("");
+	empList();
+	
+}
+function insertEmp(){
+	
 	var param=$('#popup form').serialize();
 	
 	$.post('addXml.bit',param,function(){
-		$('#popup').hide();
+		$('#popup').hide().find('input').val("");
 		empList();
 	});
 	
@@ -238,31 +308,39 @@ function empList(){
 		<div>
 			<h3>입력페이지</h3>
 			<form action="#">
-				<div>
+				<div class="add detail">
 					<label for="empno">empno</label>
 					<input type="text" id="empno" name="empno"/>
 				</div>
-				<div>
+				<div class="add detail">
 					<label for="ename">ename</label>
 					<input type="text" id="ename" name="ename"/>
 				</div>
-				<div>
+				<div class="add detail">
 					<label for="job">job</label>
 					<input type="text" id="job" name="job"/>
 				</div>
-				<div>
+				<div class="add detail">
 					<label for="mgr">mgr</label>
 					<input type="text" id="mgr" name="mgr" value="7839" />
 				</div>
-				<div>
+				<div class="detail">
+					<label for="hiredate">hiredate</label>
+					<input type="text" id="hiredate" name="hiredate" disabled/>
+				</div>
+				<div class="add detail">
 					<label for="sal">sal</label>
 					<input type="text" id="sal" name="sal" />
 				</div>
-				<div>
+				<div class="detail">
+					<label for="comm">comm</label>
+					<input type="text" id="comm" name="comm" />
+				</div>
+				<div class="add detail">
 					<label for="deptno">deptno</label>
 					<input type="text" id="deptno" name="deptno" />
 				</div>
-				<div>
+				<div class="add detail">
 					<button type="submit">입력</button>
 					<button type="reset">취소</button>
 					<button type="button">뒤로</button>
