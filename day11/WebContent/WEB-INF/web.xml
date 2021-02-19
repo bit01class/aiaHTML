@@ -8,6 +8,14 @@
   	<servlet-name>emplist</servlet-name>
   	<servlet-class>com.bit.xml.Emp</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>empAdd</servlet-name>
+  	<servlet-class>com.bit.xml.EmpAdd</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>empAdd</servlet-name>
+  	<url-pattern>/addXml.bit</url-pattern>
+  </servlet-mapping>
   <servlet-mapping>
   	<servlet-name>emplist</servlet-name>
   	<url-pattern>/list.xml</url-pattern>

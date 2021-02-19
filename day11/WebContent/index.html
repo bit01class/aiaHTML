@@ -60,7 +60,45 @@
 		width: 400px;
 		margin: 5px auto;
 	}
-	
+	#popup{
+		background-color: rgba(0,0,0,0.4);
+		position: fixed;
+		left: 0px;
+		top:0px;
+		width:100%;
+		height: 100%;
+	}
+	#popup>div{
+		background-color: white;
+		width: 400px;
+		height: 400px;
+		margin: 20px auto;
+		border-radius: 10px;
+	}
+	#popup>div>h3{
+		padding-top:50px;
+		text-align: center;
+		border-bottom: 1px solid gray;
+	}
+	#popup>div>form{
+		display: block;
+		width: 80%;
+		margin: 0px auto;
+	}
+	#popup>div>form>div{
+		text-align: center;
+		margin: 20px 0px;
+	}
+	#popup>div>form>div>label:first-child{
+		display: inline-block;
+		width: 150px;
+		text-align: left;
+		background-color: #cccccc;
+	}
+	#popup>div>form>div>button{
+		width: 30%;
+		height: 30px;
+	}
 </style>
 <style type="text/css">
 	#content{}
@@ -93,6 +131,11 @@
 <script type="text/javascript" src="js/jquery-1.12.4.js"></script>
 <script type="text/javascript">
 $(function(){
+	$('#popup').click(function(){
+		$(this).hide();
+	}).children().first().click(function(e){
+		e.stopPropagation();
+	});
 	$('<div/>').prependTo('#content>.loopImgs');
 	$('.loopImgs img').click(function(){
 		$('.loopImgs>div')
@@ -115,11 +158,34 @@ $(function(){
 		$('#content')
 			.empty()
 			.append($('<h2/>').text('EMP LIST'))
-			.append('<table/>');
+			.append('<table/>')
+			.append('<button>입력</button>');
 		empList();
 		return false;
 	});
+	
+	$(document).on('click','#content button',function(){
+		modal();
+	});
+	
+
+	$('#popup form').submit(insertEmp);
 });
+
+function modal(){
+	$('#popup').fadeIn(1000);
+}
+function insertEmp(e){
+	e.preventDefault();
+	var param=$('#popup form').serialize();
+	
+	$.post('addXml.bit',param,function(){
+		$('#popup').hide();
+		empList();
+	});
+	
+	return false;
+}
 
 function empList(){
 	$.get('list.xml',function(data){
@@ -166,6 +232,42 @@ function empList(){
 			<address>서울특별시 종로구 종로 69 YMCA 7층</address>
 			<p>비트캠프 대표문의080 - 861 - 0909</p>
 			<p>Copyright &copy; 비트캠프 All rights reserved</p>
+		</div>
+	</div>
+	<div id="popup">
+		<div>
+			<h3>입력페이지</h3>
+			<form action="#">
+				<div>
+					<label for="empno">empno</label>
+					<input type="text" id="empno" name="empno"/>
+				</div>
+				<div>
+					<label for="ename">ename</label>
+					<input type="text" id="ename" name="ename"/>
+				</div>
+				<div>
+					<label for="job">job</label>
+					<input type="text" id="job" name="job"/>
+				</div>
+				<div>
+					<label for="mgr">mgr</label>
+					<input type="text" id="mgr" name="mgr" value="7839" />
+				</div>
+				<div>
+					<label for="sal">sal</label>
+					<input type="text" id="sal" name="sal" />
+				</div>
+				<div>
+					<label for="deptno">deptno</label>
+					<input type="text" id="deptno" name="deptno" />
+				</div>
+				<div>
+					<button type="submit">입력</button>
+					<button type="reset">취소</button>
+					<button type="button">뒤로</button>
+				</div>
+			</form>
 		</div>
 	</div>
 </body>
