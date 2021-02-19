@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	body,*{
+		margin: 0px;
+		padding: 0px;
+	}
+	body{
+		background-color: #dddddd;
+	}
+	body>div{
+		width: 800px;
+		margin:0px auto;
+		background-color: white;
+	}
+	#header{
+		padding: 10px;
+	}
+	#header>h1{
+		background-image: url("imgs/logo.png");
+		background-repeat: norepeat;
+		width: 149px;
+		height: 33px;
+		text-indent: -999px;
+	}
+	#navi{
+		overflow: hidden;
+		background-color: #aaaaaa;
+	}
+	#navi>ul{
+		list-style: none;
+		width: 425px;
+		margin: 0px auto;
+	}
+	#navi>ul>li{
+		float:left;
+		width: 100px;
+		border-right: 5px solid #dddddd;
+	}
+	#navi>ul>li:first-child{
+		border-left: 5px solid #dddddd;
+	}
+	#navi>ul>li>a{
+		display: block;
+		height: 50px;
+		line-height: 50px;
+		text-decoration: none;
+		text-align: center;
+		color: white;
+		background-color: gray;
+	}
+	#footer{
+		clear: both;
+		background-color: #aaaaaa;
+	}
+	#footer>*{
+		width: 400px;
+		margin: 5px auto;
+	}
+	
+</style>
+<style type="text/css">
+	#content{}
+	#content>*{
+		width: 100%;
+	}
+	#content>.loopImgs{
+		margin: 50px auto;
+		width: 380px;
+		overflow: hidden;
+	}
+	#content>.loopImgs>div{
+		width: 300px;
+		height: 320px;
+		display: inline-block;
+	}
+	#content>.loopImgs>ul{
+		list-style: none;
+		display: inline-block;
+		width: 50px;
+		margin-left: 15px;
+	}
+	#content>.loopImgs>ul>li{
+	}
+	#content>.loopImgs>ul>li>img{
+		width: 50px;
+	}
+
+</style>
+<script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+<script type="text/javascript">
+$(function(){
+	$('<div/>').prependTo('#content>.loopImgs');
+	$('.loopImgs img').click(function(){
+		$('.loopImgs>div')
+			.html($(this).clone())
+			.hide().show(2000);
+	}).first().click();
+	/* main */
+	$('#navi a').eq(0).click(function(){
+		location.reload();
+		return false;
+	});
+	/* intro */
+	$('#navi a').eq(1).click(function(){
+		var msg='<h2>Intro Page</h2><img src="imgs/visual3.jpg"/>';
+		$('#content').html(msg);
+		return false;
+	});
+	/* emp list */
+	$('#navi a').eq(2).click(function(){
+		$('#content')
+			.empty()
+			.append($('<h2/>').text('EMP LIST'))
+			.append('<table/>');
+		empList();
+		return false;
+	});
+});
+
+function empList(){
+	$.get('list.xml',function(data){
+		$('table').empty().append('<tr><th>empno</th><th>ename</th><th>job</th><th>sal</th></tr>')
+		$(data).children().first().children()
+		.each(function(idx,ele){
+			$('<tr/>')
+				.append('<td>'+$(ele).find('empno').html()+'</td>')
+				.append('<td>'+$(ele).find('ename').html()+'</td>')
+				.append('<td>'+$(ele).find('job').html()+'</td>')
+				.append('<td>'+$(ele).find('sal').html()+'</td>')
+			.appendTo('table');
+		});
+	});
+}
+</script>
+</head>
+<body>
+	<div>
+		<div id="header">
+			<h1>비트교육센터</h1>
+		</div>
+		<div id="navi">
+			<ul>
+				<li><a href="#">home</a></li>
+				<li><a href="#">intro</a></li>
+				<li><a href="#">emp(xml)</a></li>
+				<li><a href="#">dept(json)</a></li>
+			</ul>
+		</div>
+		<div id="content">
+			<div class="loopImgs">
+				<ul>
+					<li><img src="imgs/big01.jpg"/></li>
+					<li><img src="imgs/big02.jpg"/></li>
+					<li><img src="imgs/big03.jpg"/></li>
+					<li><img src="imgs/big04.jpg"/></li>
+					<li><img src="imgs/big05.jpg"/></li>
+					<li><img src="imgs/big06.jpg"/></li>
+				</ul>
+			</div>
+		</div>
+		<div id="footer">
+			<address>서울특별시 종로구 종로 69 YMCA 7층</address>
+			<p>비트캠프 대표문의080 - 861 - 0909</p>
+			<p>Copyright &copy; 비트캠프 All rights reserved</p>
+		</div>
+	</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
