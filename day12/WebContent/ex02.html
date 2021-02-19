@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+<script type="text/javascript">
+$(function(){
+	$.ajax({
+		url:'ex01.html'
+		,type:'post'
+		,data:{id:'root',pw:'4321'}//'id=admin&pw=1234'
+		,dataType:'json'
+		,success:function(data){
+			console.log('ajax',typeof data);
+			console.log('ajax',data);
+		}
+	});
+	$.getJSON('ex01.html',function(data){
+		console.log(typeof data);
+		console.log(data);
+		/* 
+		data.root.forEach(function(ele,idx){
+			console.log(ele,idx);
+		});
+		 */
+		$(data.root).each(function(idx,ele){
+			var tr=$('<tr/>');
+			$('<td/>').html(ele.key1).appendTo(tr);
+			$('<td/>').html(ele.key2).appendTo(tr);
+			$('<td/>').html(ele.key3).appendTo(tr);
+			$('<td/>').html(ele.key4).appendTo(tr);
+			$('table').append(tr);
+		});
+	});
+});
+</script>
+</head>
+<body>
+	<h1>json pasing</h1>
+	<table></table>	
+</body>
+</html>
+
+
+
+
+

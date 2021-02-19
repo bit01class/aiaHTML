@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+<script type="text/javascript">
+$(function(){
+	//var url='http://www.kma.go.kr/weather/forecast/mid-term-rss3.jsp?stnId=109';
+	//var url='http://localhost:8080/day11/list.xml';
+	/* var url="ex04.jsonp";
+	$.get(url,function(data){
+		console.log(data);
+	}); */
+	$.ajax({
+		url:'ex04.jsonp'
+		,dataType:'jsonp'
+		,success:function(data){
+			console.log(data);
+		}
+	});
+});
+</script>
+</head>
+<body>
+	<h1>날씨 정보</h1>
+	<div></div>
+</body>
+</html>
