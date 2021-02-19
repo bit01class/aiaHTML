@@ -16,6 +16,14 @@
   	<servlet-name>empOne</servlet-name>
   	<servlet-class>com.bit.xml.EmpOne</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>empEdit</servlet-name>
+  	<servlet-class>com.bit.xml.EmpEdit</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>empEdit</servlet-name>
+  	<url-pattern>/editXml.bit</url-pattern>
+  </servlet-mapping>
   <servlet-mapping>
   	<servlet-name>empOne</servlet-name>
   	<url-pattern>/emp.xml</url-pattern>

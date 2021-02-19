@@ -241,6 +241,11 @@ function editEmp(){
 }
 function updateEmp(){
 	// ajax
+	$.ajax({
+		url:'editXml.bit'
+		,type:'put'
+		,data:$('#popup form').serialize()
+	});
 	$('#popup').hide().find('input').val("");
 	empList();
 	
