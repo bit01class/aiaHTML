@@ -17,6 +17,34 @@ public class DeptDao {
 	PreparedStatement pstmt;
 	ResultSet rs;
 	
+	public DeptDto getOne(int deptno) {
+		DeptDto bean=new DeptDto();
+		String sql="select * from dept where deptno=?";
+		try {
+			Class.forName(driver);
+			conn=DriverManager.getConnection(url, user, password);
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setInt(1, deptno);
+			rs=pstmt.executeQuery();
+			if(rs.next()) {
+				bean.setDeptno(rs.getInt("deptno"));
+				bean.setDname(rs.getString("dname"));
+				bean.setLoc(rs.getString("loc"));
+			}
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(conn!=null)conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return bean;
+	}
+	
 	public void setList(int deptno,String dname,String loc) {
 		String sql="insert into dept values (?,?,?)";
 		

@@ -78,18 +78,80 @@
 		margin: 10px auto;
 		box-shadow:2px 2px 5px darkgray;
 		background-image: linear-gradient(gray, darkgray, gray);
+	
 	}
-	#content table>tbody>tr>td>a{
+	#content{}
+	#content>form{
+		width: 350px;
+		margin: 0px auto;
+	}
+	#content>form>div{}
+	#content>form>div>label{
+		display: inline-block;
+		width: 100px;
+	}
+	#content>form>div>input{
+		width: 200px;
+	}
+	#content>form>div>button{
+		width: 30%;
+	}
+	#content>form>div>.err{
 		display: block;
-		color: #333333;
-		text-decoration: none;
+		color: red;
+		text-align: center;
+		font-style: italic;
+	}
+	#content div{
+		width: 80%;
+		margin: 0px auto;
+	}
+	#content div>div{
+		border-bottom-style: dotted;
+		border-bottom-color: gray;
+		border-bottom-width: 1px;
+	}
+	#content div>div>span{
+		display:inline-block;
+		width: 55%;
+	}
+	#content div>div>span:first-child{
+		background-color:gray;
+		width: 40%;
 	}
 </style>
-<script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+<script type="text/javascript" src="../js/jquery-1.12.4.js"></script>
 
 
 <script type="text/javascript">
  $(document).ready(function(){
+	 $('form').submit(function(){
+		 $('.err').remove();
+		 if($('form input').eq(0).val()==''){
+			 $('form input').eq(0).focus().parent()
+			 .append('<span class="err">빈칸을 입력하세요</span>')
+			 ;
+			 return false;
+		 }
+		 if(Number.isNaN($('form input').eq(0).val()*1)){
+			 $('form input').eq(0).select().parent()
+			 .append('<span class="err">숫자만 입력하세요</span>')
+			 ;
+			 return false;
+		 }
+		 if($('form input').eq(1).val()==''){
+			 $('form input').eq(1).focus().parent()
+			 .append('<span class="err">빈칸을 입력하세요</span>')
+			 ;
+			 return false;
+		 }
+		 if($('form input').eq(2).val()==''){
+			 $('form input').eq(2).focus().parent()
+			 .append('<span class="err">빈칸을 입력하세요</span>')
+			 ;
+			 return false;
+		 }
+	 });
  });   
     
 </script>
@@ -108,31 +170,27 @@
 		</ul>
 	</div>
 	<div id="content">
-		<h2>dept list</h2>
-		<table>
-			<thead>
-				<tr>
-					<th>deptno</th>
-					<th>dname</th>
-					<th>loc</th>
-				</tr>
-			</thead>
-			<tbody>
-			<%@ page import="java.util.*,com.bit.model.DeptDto" %>
-			<%
-				List<DeptDto> list=null;
-				list=(List<DeptDto>)request.getAttribute("alist");
-				for(DeptDto bean: list){
-			%>
-				<tr>
-					<td><a href="detail.html?deptno=<%=bean.getDeptno() %>"><%=bean.getDeptno() %></a></td>
-					<td><a href="detail.html?deptno=<%=bean.getDeptno() %>"><%=bean.getDname() %></a></td>
-					<td><a href="detail.html?deptno=<%=bean.getDeptno() %>"><%=bean.getLoc() %></a></td>
-				</tr>
-			<%} %>
-			</tbody>
-		</table>
-		<a href="add.html">입 력</a>
+		<h2>dept detail</h2>
+		<%@ page import="com.bit.model.DeptDto" %>
+		<% DeptDto bean=(DeptDto)request.getAttribute("bean"); %>
+		<div>
+			<div>
+				<span>deptno</span>
+				<span><%=bean.getDeptno() %></span>
+			</div>
+			<div>
+				<span>dname</span>
+				<span><%=bean.getDname() %></span>
+			</div>
+			<div>
+				<span>loc</span>
+				<span><%=bean.getLoc() %></span>
+			</div>
+			<div>
+				<a href="#">수정</a>
+				<a href="#">삭제</a>
+			</div>
+		</div>
 	</div>
 	<div id="footer">
 		Copyright &copy; 비트캠프 All rights reserved.

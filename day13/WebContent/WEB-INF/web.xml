@@ -17,6 +17,10 @@
   	<servlet-name>deptAdd</servlet-name>
   	<servlet-class>com.bit.controller.DeptAddController</servlet-class>
   </servlet>
+  <servlet>
+  <servlet-name>deptOne</servlet-name>
+  <servlet-class>com.bit.controller.DeptOneController</servlet-class>
+  </servlet>
 
   <servlet-mapping>
   	<servlet-name>deptAdd</servlet-name>
@@ -30,7 +34,10 @@
   	<servlet-name>deptList</servlet-name>
   	<url-pattern>/dept/list.html</url-pattern>
   </servlet-mapping>
-  
+  <servlet-mapping>
+  	<servlet-name>deptOne</servlet-name>
+  	<url-pattern>/dept/detail.html</url-pattern>
+  </servlet-mapping>
 </web-app>
 
 

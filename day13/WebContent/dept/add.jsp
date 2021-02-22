@@ -96,12 +96,45 @@
 	#content>form>div>button{
 		width: 30%;
 	}
+	#content>form>div>.err{
+		display: block;
+		color: red;
+		text-align: center;
+		font-style: italic;
+	}
 </style>
-<script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+<script type="text/javascript" src="../js/jquery-1.12.4.js"></script>
 
 
 <script type="text/javascript">
  $(document).ready(function(){
+	 $('form').submit(function(){
+		 $('.err').remove();
+		 if($('form input').eq(0).val()==''){
+			 $('form input').eq(0).focus().parent()
+			 .append('<span class="err">빈칸을 입력하세요</span>')
+			 ;
+			 return false;
+		 }
+		 if(Number.isNaN($('form input').eq(0).val()*1)){
+			 $('form input').eq(0).select().parent()
+			 .append('<span class="err">숫자만 입력하세요</span>')
+			 ;
+			 return false;
+		 }
+		 if($('form input').eq(1).val()==''){
+			 $('form input').eq(1).focus().parent()
+			 .append('<span class="err">빈칸을 입력하세요</span>')
+			 ;
+			 return false;
+		 }
+		 if($('form input').eq(2).val()==''){
+			 $('form input').eq(2).focus().parent()
+			 .append('<span class="err">빈칸을 입력하세요</span>')
+			 ;
+			 return false;
+		 }
+	 });
  });   
     
 </script>
