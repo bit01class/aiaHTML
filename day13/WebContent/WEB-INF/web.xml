@@ -13,8 +13,15 @@
   	<servlet-name>deptList</servlet-name>
   	<servlet-class>com.bit.controller.DeptController</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>deptAdd</servlet-name>
+  	<servlet-class>com.bit.controller.DeptAddController</servlet-class>
+  </servlet>
 
-  
+  <servlet-mapping>
+  	<servlet-name>deptAdd</servlet-name>
+  	<url-pattern>/dept/add.html</url-pattern>
+  </servlet-mapping>
   <servlet-mapping>
   	<servlet-name>ex03</servlet-name>
   	<url-pattern>/ex03.html</url-pattern>

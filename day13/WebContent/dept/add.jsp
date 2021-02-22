@@ -78,6 +78,23 @@
 		margin: 10px auto;
 		box-shadow:2px 2px 5px darkgray;
 		background-image: linear-gradient(gray, darkgray, gray);
+	
+	}
+	#content{}
+	#content>form{
+		width: 350px;
+		margin: 0px auto;
+	}
+	#content>form>div{}
+	#content>form>div>label{
+		display: inline-block;
+		width: 100px;
+	}
+	#content>form>div>input{
+		width: 200px;
+	}
+	#content>form>div>button{
+		width: 30%;
 	}
 </style>
 <script type="text/javascript" src="js/jquery-1.12.4.js"></script>
@@ -103,31 +120,27 @@
 		</ul>
 	</div>
 	<div id="content">
-		<h2>dept list</h2>
-		<table>
-			<thead>
-				<tr>
-					<th>deptno</th>
-					<th>dname</th>
-					<th>loc</th>
-				</tr>
-			</thead>
-			<tbody>
-			<%@ page import="java.util.*,com.bit.model.DeptDto" %>
-			<%
-				List<DeptDto> list=null;
-				list=(List<DeptDto>)request.getAttribute("alist");
-				for(DeptDto bean: list){
-			%>
-				<tr>
-					<td><%=bean.getDeptno() %></td>
-					<td><%=bean.getDname() %></td>
-					<td><%=bean.getLoc() %></td>
-				</tr>
-			<%} %>
-			</tbody>
-		</table>
-		<a href="add.html">입 력</a>
+		<h2>dept add</h2>
+		<form action="add.html" method="post">
+			<div>
+				<label>deptno</label>
+				<input type="text" name="deptno" />
+			</div>
+			<div>
+				<label>dname</label>
+				<input type="text" name="dname" />
+			</div>
+			<div>
+				<label>loc</label>
+				<input type="text" name="loc" />
+			</div>
+			<div>
+				<button>입력</button>
+				<button type="reset">취소</button>
+				<button type="button">뒤로</button>
+			</div>
+		
+		</form>
 	</div>
 	<div id="footer">
 		Copyright &copy; 비트캠프 All rights reserved.

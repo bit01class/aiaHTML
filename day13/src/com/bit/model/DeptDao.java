@@ -9,19 +9,43 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DeptDao {
+	String driver="oracle.jdbc.OracleDriver";
+	String url="jdbc:oracle:thin:@localhost:1521:xe";
+	String user="scott";
+	String password="tiger";
+	Connection conn;
+	PreparedStatement pstmt;
+	ResultSet rs;
+	
+	public void setList(int deptno,String dname,String loc) {
+		String sql="insert into dept values (?,?,?)";
+		
+		try {
+			Class.forName(driver);
+			conn=DriverManager.getConnection(url, user, password);
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setInt(1, deptno);
+			pstmt.setString(2, dname);
+			pstmt.setString(3, loc);
+			pstmt.executeUpdate();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(conn!=null)conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+	}
 
 	public List<DeptDto> getList() {
 		String sql="select * from dept";
 		List<DeptDto> list=new ArrayList<DeptDto>();
 		
-		String driver="oracle.jdbc.OracleDriver";
-		String url="jdbc:oracle:thin:@localhost:1521:xe";
-		String user="scott";
-		String password="tiger";
 		
-		Connection conn=null;
-		PreparedStatement pstmt=null;
-		ResultSet rs=null;
 		try {
 			Class.forName(driver);
 			conn=DriverManager.getConnection(url, user, password);
