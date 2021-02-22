@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title> Title </title>
+<style type="text/css">
+	body>div{
+		margin: 0px auto;
+		padding: 0px;
+	}
+	#header{
+		
+	}
+	#header>h1{
+		background-image: url("imgs/logo.png");
+		background-repeat: no-repeat;
+		text-indent: -999px;
+	}
+	#menu{
+		overflow: hidden;
+		background-color: gray;
+	}
+	#menu>ul{
+		padding: 0px;
+		width: 440px;
+		list-style: none;
+		margin: 0px auto;
+	}
+	#menu>ul>li{
+		width: 100px;
+		float: left;
+		border-top: 2px solid darkgray;
+		border-bottom: 2px solid darkgray;
+		margin: 0px 5px;
+	}
+	#menu>ul>li>a{
+		display: block;
+		height: 30px;
+		line-height: 30px;
+		text-align: center;
+		text-decoration: none;
+		color:white;
+	}
+	.bx-controls{
+		display: none;
+	}
+</style>
+<script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+
+<script type="text/javascript" src="js/jquery.bxslider.min.js"></script>
+
+<script type="text/javascript">
+ $(document).ready(function(){
+  $('.bxslider').bxSlider({
+      minSlides:2,
+      maxSlides:3,
+      slideWidth:320,
+      moveSlides:1,
+     /*
+      speed:3000,
+      mode:'horizontal',
+      slideMargin:5,
+      captions:true,
+      pager:true,
+      pagerType:'short',
+      pagerShortSeparator:'/',
+      pagerSelector:'body>div+div',
+      nextText:'다음',
+      prevText:'이전',
+      auto:true,
+      autoControls:true,
+      */
+      onSliderLoad:function(idx){console.log('onSliderLoad',idx);},
+      onSliderResize:function(idx){console.log('onSliderResize',idx);},
+      onSlideBefore:function(ele,old,idx){console.log('Before',ele,old,idx);},
+      onSlideAfter:function(ele,old,idx){console.log('After',ele,old,idx);},
+      onSlideNext:function(ele,old,idx){console.log('Next',ele,old,idx);},
+      onSlidePrev:function(ele,old,idx){console.log('Prev',ele,old,idx);}
+  }).startAuto();
+ });   
+    
+</script>
+</head>
+<body>
+<div>
+	<div id="header">
+		<h1>비트교육센터</h1>
+	</div>
+	<div id="menu">
+		<ul>
+			<li><a href="./">HOME</a></li>
+			<li><a href="./dept/list.html">DEPT</a></li>
+			<li><a href="/emp/list.html">EMP</a></li>
+			<li><a href="/login/login.html">LOGIN</a></li>
+		</ul>
+	</div>
+	<div id="content">
+		<div class="bxslider">
+		  <div>
+		      <img src="imgs/big01.jpg" title="Funky roots">
+		  </div>
+		  <div>
+		      <img src="imgs/big02.jpg" title="The long and winding road">
+		  </div>
+		  <div>
+		      <img src="imgs/big03.jpg" title="Happy trees">
+		  </div>
+		  <div>
+		      <img src="imgs/big04.jpg" title="Funky roots">
+		  </div>
+		  <div>
+		      <img src="imgs/big05.jpg" title="The long and winding road">
+		  </div>
+		  <div>
+		      <img src="imgs/big06.jpg" title="Happy trees">
+		  </div>
+		</div>
+	</div>
+	<div id="footer">
+		Copyright &copy; 비트캠프 All rights reserved.
+	</div>
+</div>
+
+
+</body>
+</html>

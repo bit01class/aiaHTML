@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title> Title </title>
+<script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+<script type="text/javascript" src="js/jquery.bxslider.min.js"></script>
+<script type="text/javascript">
+    var bx1,bx2;
+    $(function(){
+        bx1=$('ul').bxSlider({
+            auto:true,
+            onSlideBefore:function(){
+               var idx=bx1.getCurrentSlide();
+	           bx2.goToSlide(idx);
+            }
+        });
+        bx2=$('ol').bxSlider({
+            minSlides:3,
+            maxSlides:3,
+            slideWidth:100,
+            slideMargin:10,
+            moveSlides:1
+        });
+    });
+</script>
+</head>
+<body>
+    <div>
+        <ul>
+            <li>
+            <img src="imgs/big01.jpg"/>
+            </li>
+            <li>
+            <img src="imgs/big02.jpg"/>
+            </li>
+            <li>
+            <img src="imgs/big03.jpg"/>
+            </li>
+            <li>
+            <img src="imgs/big04.jpg"/>
+            </li>
+            <li>
+            <img src="imgs/big05.jpg"/>
+            </li>
+            <li>
+            <img src="imgs/big06.jpg"/>
+            </li>
+            
+        </ul>
+        <ol>
+            <li>
+            <img src="imgs/big01.jpg"/>
+            </li>
+            <li>
+            <img src="imgs/big02.jpg"/>
+            </li>
+            <li>
+            <img src="imgs/big03.jpg"/>
+            </li>
+            <li>
+            <img src="imgs/big04.jpg"/>
+            </li>
+            <li>
+            <img src="imgs/big05.jpg"/>
+            </li>
+            <li>
+            <img src="imgs/big06.jpg"/>
+            </li>
+            
+        </ol>
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
