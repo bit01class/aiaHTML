@@ -2,7 +2,7 @@
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
   <display-name>day14</display-name>
   <welcome-file-list>
-    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>
   <context-param>
   	<param-name>param1</param-name>
@@ -65,7 +65,31 @@
   <servlet>
   	<servlet-name>deptList</servlet-name>
   	<servlet-class>com.bit.dept.controller.DeptList</servlet-class>
+  	<init-param>
+  		<param-name>driver</param-name>
+  		<param-value>org.mariadb.jdbc.Driver</param-value>
+  	</init-param>
+  	<init-param>
+  		<param-name>url</param-name>
+  		<param-value>jdbc:mysql://127.0.0.1:3306/xe</param-value>
+  	</init-param>
   </servlet>
+  <servlet>
+  	<servlet-name>deptAdd</servlet-name>
+  	<servlet-class>com.bit.dept.controller.DeptAdd</servlet-class>
+  	<init-param>
+  		<param-name>driver</param-name>
+  		<param-value>org.mariadb.jdbc.Driver</param-value>
+  	</init-param>
+  	<init-param>
+  		<param-name>url</param-name>
+  		<param-value>jdbc:mysql://127.0.0.1:3306/xe</param-value>
+  	</init-param>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>deptAdd</servlet-name>
+  	<url-pattern>/dept/add.bit</url-pattern>
+  </servlet-mapping>
   <servlet-mapping>
   	<servlet-name>deptList</servlet-name>
   	<url-pattern>/dept/list.bit</url-pattern>

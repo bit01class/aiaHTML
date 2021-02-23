@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+<%@ include file="./template/menu.jspf" %>
 <table>
 	<thead>
 		<tr>
@@ -33,6 +33,7 @@
 	%>
 	</tbody>
 </table>
+<%@ include file="./template/footer.jspf" %>
 </body>
 </html>
 
