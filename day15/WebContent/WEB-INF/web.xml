@@ -8,8 +8,24 @@
   	<servlet-name>list</servlet-name>
   	<servlet-class>com.bit.emp.controller.ListController</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>detail</servlet-name>
+  	<servlet-class>com.bit.emp.controller.OneController</servlet-class>
+  </servlet>
+  
   <servlet-mapping>
   	<servlet-name>list</servlet-name>
   	<url-pattern>/list.bit</url-pattern>
   </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>detail</servlet-name>
+  	<url-pattern>/detail.bit</url-pattern>
+  </servlet-mapping>
 </web-app>
+
+
+
+
+
+
+

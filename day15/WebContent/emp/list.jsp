@@ -17,12 +17,15 @@
 			<th>deptno</th>
 		</tr>
 		<c:forEach items="${list }" var="bean">
+			<c:url var="detail" value="/detail.bit">
+				<c:param name="idx" value="${bean.empno }"></c:param>
+			</c:url>
 		<tr>
-			<td>${bean.empno }</td>
-			<td>${bean.ename }</td>
-			<td>${bean.nalja }</td>
-			<td>${bean.pay }</td>
-			<td>${bean.deptno }</td>
+			<td><a href="${detail }">${bean.empno }</a></td>
+			<td><a href="${detail }">${bean.ename }</a></td>
+			<td><a href="${detail }">${bean.nalja }</a></td>
+			<td><a href="${detail }">${bean.pay }</a></td>
+			<td><a href="${detail }">${bean.deptno }</a></td>
 		</tr>
 		</c:forEach>		
 	</table>

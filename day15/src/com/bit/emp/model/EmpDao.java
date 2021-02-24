@@ -10,6 +10,36 @@ import com.bit.util.MariaDb;
 
 public class EmpDao {
 	
+	public EmpDto2 selectOne(int empno) {
+		String sql="select * from emp where empno=?";
+		EmpDto2 bean=new EmpDto2();
+		
+		try {
+			PreparedStatement pstmt=MariaDb
+					.getConnection().prepareStatement(sql);
+			pstmt.setInt(1, empno);
+			ResultSet rs=pstmt.executeQuery();
+			if(rs.next()) {
+				bean.setEmpno(rs.getInt("empno"));
+				bean.setEname(rs.getString("ename"));
+				bean.setNalja(rs.getDate("nalja"));
+				bean.setPay(rs.getInt("pay"));
+				bean.setDeptno(rs.getInt("deptno"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(MariaDb.getConnection()!=null)
+					MariaDb.getConnection().close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		return bean;
+	}
+	
 	public List<EmpDto2> selectAll(){
 		String sql="select * from emp";
 		List<EmpDto2> list=new ArrayList<EmpDto2>();
