@@ -5,37 +5,35 @@
     <welcome-file>index.html</welcome-file>
   </welcome-file-list>
   <servlet>
-  	<servlet-name>ex01</servlet-name>
-  	<servlet-class>com.bit.controller.Ex01Controller</servlet-class>
+    <servlet-name>ex01</servlet-name>
+    <servlet-class>com.bit.controller.Ex01Controller</servlet-class>
+    <init-param>
+      <param-name>viewName</param-name>
+      <param-value>index</param-value>
+    </init-param>
   </servlet>
   <servlet>
-  	<servlet-name>ex03</servlet-name>
-  	<servlet-class>com.bit.controller.Ex03Controller</servlet-class>
-  	<init-param>
-  		<param-name>id</param-name>
-  		<param-value>guest</param-value>
-  	</init-param>
-  	<init-param>
-  		<param-name>pw</param-name>
-  		<param-value>1234</param-value>
-  	</init-param>
+    <servlet-name>ex03</servlet-name>
+    <servlet-class>com.bit.controller.Ex03Controller</servlet-class>
+    <init-param>
+      <param-name>id</param-name>
+      <param-value>guest</param-value>
+    </init-param>
+    <init-param>
+      <param-name>pw</param-name>
+      <param-value>1234</param-value>
+    </init-param>
   </servlet>
-  
   <servlet-mapping>
-  	<servlet-name>ex01</servlet-name>
-  	<url-pattern>/ex01.bit</url-pattern>
+    <servlet-name>ex01</servlet-name>
+    <url-pattern>/ex01.bit</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
-  	<servlet-name>ex01</servlet-name>
-  	<url-pattern>/ex01.do</url-pattern>
+    <servlet-name>ex01</servlet-name>
+    <url-pattern>/ex01.do</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
-  	<servlet-name>ex03</servlet-name>
-  	<url-pattern>/ex03.bit</url-pattern>
+    <servlet-name>ex03</servlet-name>
+    <url-pattern>/ex03.bit</url-pattern>
   </servlet-mapping>
 </web-app>
-
-
-
-
-
